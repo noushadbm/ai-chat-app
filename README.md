@@ -1,4 +1,4 @@
-### 1. Install Ollam
+### 1. Install Ollama
 ### 2. Run llama2:latest locally
 ### 3. Start this spring boot application
 ### 4. Test application by following curl command:
