@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.example.simple.util.Utils.parseEmbedding;
+
 @Service
 public class ChatService {
     private final OllamaService ollamaService;
@@ -31,14 +33,5 @@ public class ChatService {
 
         // Generate response using the context
         return ollamaService.generateResponse(message, context);
-    }
-
-    private double[] parseEmbedding(String embeddingStr) {
-        String[] values = embeddingStr.replaceAll("[\\[\\]]", "").split(",");
-        double[] embedding = new double[values.length];
-        for (int i = 0; i < values.length; i++) {
-            embedding[i] = Double.parseDouble(values[i].trim());
-        }
-        return embedding;
     }
 }

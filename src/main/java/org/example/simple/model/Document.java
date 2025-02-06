@@ -14,6 +14,6 @@ public class Document {
     @Column(columnDefinition = "text")
     private String content;
 
-    @Column(name = "embedding", columnDefinition = "vector(384)")
+    @Column(name = "embedding", columnDefinition = "vector(4096)")
     private double[] embedding;
 }

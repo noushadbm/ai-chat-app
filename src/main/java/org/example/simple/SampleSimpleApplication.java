@@ -16,6 +16,7 @@
 
 package org.example.simple;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -28,6 +29,7 @@ import org.example.simple.service.HelloWorldService;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
+@Log4j2
 public class SampleSimpleApplication implements CommandLineRunner {
 
 	// Simple example shows how a command line spring application can execute an
@@ -39,7 +41,7 @@ public class SampleSimpleApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		System.out.println(this.helloWorldService.getHelloMessage());
+		log.info(this.helloWorldService.getHelloMessage());
 	}
 
 	public static void main(String[] args) throws Exception {

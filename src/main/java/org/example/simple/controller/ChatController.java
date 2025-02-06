@@ -1,5 +1,6 @@
 package org.example.simple.controller;
 
+import lombok.extern.log4j.Log4j2;
 import org.example.simple.model.ChatMessage;
 import org.example.simple.service.ChatService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@Log4j2
 @RequestMapping("/api/chat")
 public class ChatController {
     private final ChatService chatService;
@@ -18,9 +20,9 @@ public class ChatController {
 
     @PostMapping
     public ChatMessage chat(@RequestBody ChatMessage message) {
-        System.out.println("Request received");
+        log.info("Request received");
         String response = chatService.processMessage(message.getMessage());
-        System.out.println("Returning response.");
+        log.info("Returning response.");
 
         ChatMessage responseMessage = new ChatMessage();
         responseMessage.setMessage(response);
